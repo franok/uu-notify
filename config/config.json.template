@@ -1,0 +1,9 @@
+{
+    "gotify": {
+        "url": "https://<gotify-server-url>",
+        "token": "<gotify-app-token>"
+    },
+    "github": {
+        "personalAccessToken": null
+    }
+}

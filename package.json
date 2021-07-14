@@ -1,0 +1,18 @@
+{
+  "name": "uber-update-watcher",
+  "version": "1.0.1",
+  "description": "check for updates of software",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/core": "^3.4.0",
+    "node-fetch": "^2.6.1",
+    "rss-parser": "^3.12.0",
+    "sqlite": "^4.0.22",
+    "sqlite3": "^5.0.2"
+  }
+}

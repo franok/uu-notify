@@ -1,0 +1,9 @@
+node_modules/
+.vscode/
+
+# data
+*.sqlite3
+
+# config
+config.json
+software-deps.mjs
