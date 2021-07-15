@@ -72,7 +72,7 @@ export async function notifyGithubApiError(err) {
 
 export async function notifyGenericError(err) {
     await sendGotification({
-        title: "Error: UberUpdateWatcher",
+        title: "Error: uuNotify",
         message: `${err.message}`
     }, 9);
 }

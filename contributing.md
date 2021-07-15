@@ -29,7 +29,7 @@ File a GitHub issue with the prefix `[question]`.
 ## Misc
 
 Note that this is a side-project, which I started in my free-time and just made it available under an open source license.
-For existing [issues])(https://github.com/franok/uber-update-watcher/issues) feel free to create a Pull Request.
+For existing [issues])(https://github.com/franok/uu-notify/issues) feel free to create a Pull Request.
 I'll come back to you, if I find the time.
 
 Be kind to each other!

@@ -1,6 +1,6 @@
 {
-  "name": "uber-update-watcher",
-  "version": "1.0.1",
+  "name": "uu-notify",
+  "version": "1.1.0",
   "description": "check for updates of software",
   "main": "index.mjs",
   "scripts": {

@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "--- UberUpdateWatcher Setup ---"
+echo "--- uuNotify setup ---"
 echo "Existing files in config/ will not be overwritten."
 echo ""
 
@@ -31,5 +31,5 @@ else
 fi
 
 echo ""
-echo "--- COMPLETED UberUpdateWatcher Setup ---"
+echo "--- COMPLETED uuNotify setup ---"
 echo "If this was the first time you executed this script, please configure config/$CONFIG_JSON and config/$SW_DEPS now!"

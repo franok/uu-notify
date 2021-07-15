@@ -1,10 +1,10 @@
 export const software = [
     {
-        name: "uber-update-watcher",
-        feedUrl: "https://github.com/franok/uber-update-watcher/releases.atom",
+        name: "uu-notify",
+        feedUrl: "https://github.com/franok/uu-notify/releases.atom",
         github: {
             org: "franok",
-            repo: "uber-update-watcher"
+            repo: "uu-notify"
         }
     }
 ];
