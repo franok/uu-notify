@@ -50,9 +50,11 @@ export async function initDb(db) {
 
     const existingRecords = await db.all(`SELECT ${softwareName} as softwareName FROM ${tableSoftwareUpdates}`);
     const softwareInDB = existingRecords.map(r => r.softwareName);
-    const newSoftware = software.filter(sw => !softwareInDB.includes(sw.name));
 
-    if (newSoftware.length) { // insert new if software-deps.mjs contains entries not yet in DB
+    // insert new software into DB
+    const newSoftware = software.filter(sw => !softwareInDB.includes(sw.name));
+    if (newSoftware.length) {
+        console.log("Adding new software to uuNotify: " + newSoftware.map(sw => sw.name));
         const stmt = await db.prepare(`INSERT INTO ${tableSoftwareUpdates} 
             VALUES (@name, @feedUrl, @ghOrg, @ghRepo, @swversion, @lastUpdated)`);
 
@@ -67,6 +69,18 @@ export async function initDb(db) {
         await stmt.finalize(); //needed here: Every prepared statement must be destroyed using a call to this routine in order to avoid memory leaks
     }
 
+    // remove software from DB, which is no longer maintained in software-deps.mjs
+    const removedSoftware = softwareInDB.filter(swName => !software.map(sw => sw.name).includes(swName));
+    if (removedSoftware.length) {
+        console.log("Removing following software from uuNotify: " + removedSoftware);
+        const stmt = await db.prepare(`DELETE FROM ${tableSoftwareUpdates} 
+            WHERE ${softwareName} = @name`);
+
+        await Promise.all(removedSoftware.map(async swName => {
+            await stmt.run({ '@name': swName });
+        }));
+        await stmt.finalize(); //needed here: Every prepared statement must be destroyed using a call to this routine in order to avoid memory leaks
+    }
 }
 
 export async function getAllFromSoftwareUpdates(db) {
