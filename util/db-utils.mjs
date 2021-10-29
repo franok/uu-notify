@@ -48,12 +48,15 @@ export async function initDb(db) {
         ${softwareVersion} TEXT,
         ${lastUpdated} TEXT)`);
 
-    const { count } = await db.get(`SELECT COUNT(*) as count FROM ${tableSoftwareUpdates}`);
-    if (count === 0) {
+    const existingRecords = await db.all(`SELECT ${softwareName} as softwareName FROM ${tableSoftwareUpdates}`);
+    const softwareInDB = existingRecords.map(r => r.softwareName);
+    const newSoftware = software.filter(sw => !softwareInDB.includes(sw.name));
+
+    if (newSoftware.length) { // insert new if software-deps.mjs contains entries not yet in DB
         const stmt = await db.prepare(`INSERT INTO ${tableSoftwareUpdates} 
             VALUES (@name, @feedUrl, @ghOrg, @ghRepo, @swversion, @lastUpdated)`);
 
-        await Promise.all(software.map(async sw => {
+        await Promise.all(newSoftware.map(async sw => {
             await stmt.run({
                 '@name': sw.name,
                 '@feedUrl': sw.feedUrl,
