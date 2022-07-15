@@ -22,7 +22,6 @@ The script is intended to be regularly run by a cronjob.
 Using _uuNotify_ with a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to avoid running into [rate limits](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting).
 The token doesn't need any scopes.
 
-sqlite API: https://www.npmjs.com/package/sqlite
 
 ## development
 

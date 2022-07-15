@@ -3,6 +3,7 @@ node_modules/
 
 # data
 *.sqlite3
+uberspace-software-updates.json
 
 # config
 config.json

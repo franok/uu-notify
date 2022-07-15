@@ -50,7 +50,7 @@ export function notifyUpdatesAvailable(softwareToBeUpdated) {
         }
 
         sendGotification({
-            title: `Uberspace: ${sw.softwareName}`,
+            title: `Uberspace: ${sw.name}`,
             message: `Update available ⬆️\nCurrent version: <=${sw.oldVersion}\nLatest version: ${sw.softwareVersion}`,
             url: sw.releaseUrl
         }, priority);
