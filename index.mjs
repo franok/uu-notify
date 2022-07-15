@@ -10,8 +10,6 @@ async function main() {
         if (process.env.NODE_ENV) {
             console.info("NODE_ENV=" + process.env.NODE_ENV);
         }
-        // await dbUtils.initDb(db);
-        // const software = await dbUtils.getAllFromSoftwareUpdates(db);
         
         const oldData = dbUtils.getSoftwareJson();
         const software = await utils.compareLastInfosWithCurrentSoftwareDepsList(oldData, softwareDeps);

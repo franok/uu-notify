@@ -1,5 +1,4 @@
 import path from 'path';
-import { readFileSync } from 'fs';
 import * as fs from 'fs';
 import { fileURLToPath } from 'url';
 
@@ -11,7 +10,7 @@ export function getSoftwareJson() {
     if(!fs.existsSync(dbPath)) {
         fs.writeFileSync(dbPath, "[]"); // initialize empty json file
     }
-    return JSON.parse(readFileSync(dbPath));
+    return JSON.parse(fs.readFileSync(dbPath));
 }
 
 export async function updateSoftwareUpdates(updates) {
