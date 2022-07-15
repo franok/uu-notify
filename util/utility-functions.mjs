@@ -32,6 +32,7 @@ export function updateData(aSoftwareToUpdateWithReleaseInfos) {
         oldVersion: sw.softwareVersion,
         softwareVersion: sw.releaseInformation.tag_name,
         releaseUrl: sw.releaseInformation.html_url,
-        preRelease: sw.releaseInformation.prerelease
+        preRelease: sw.releaseInformation.prerelease,
+        releaseInformation: undefined // avoid persisting clutter (calling delete obj.releaseInformation is performance critical)
     }));
 }
