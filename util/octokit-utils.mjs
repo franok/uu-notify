@@ -45,6 +45,6 @@ export async function retrieveLatestReleaseInformation(aSoftware) {
     return await utils.mapAsync(aSoftware, async (sw) => ({
         ...sw,
         releaseInformation: (process.env.NODE_ENV === "development") ? mock.octokitLatestReleaseResponse()
-            : await getLatestRelease(sw.githubOrg, sw.githubRepo)
+            : await getLatestRelease(sw.github.org, sw.github.repo)
     }));
 }
