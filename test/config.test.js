@@ -1,8 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-const fileURLToPath = require('url');
 
-const config = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../config/config.json")));
+let config;
+
+beforeAll(() => {
+    fs.copyFileSync(path.resolve(__dirname, "../config/config.json.template"), path.resolve(__dirname, "test-config.json"));
+    config = JSON.parse(fs.readFileSync(path.resolve(__dirname, "test-config.json")));
+});
+
 
 test('config is correct', () => {
     expect(config).toBeDefined();
@@ -13,4 +18,8 @@ test('config is correct', () => {
 
     expect(config.github).toBeDefined();
     expect(config.github.personalAccessToken).toBeDefined();
+});
+
+afterAll(() => {
+    fs.unlinkSync(path.resolve(__dirname, "test-config.json"));
 });
