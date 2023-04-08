@@ -1,6 +1,6 @@
 {
   "name": "uu-notify",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "check for updates of software",
   "main": "index.mjs",
   "scripts": {
