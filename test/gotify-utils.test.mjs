@@ -1,3 +1,4 @@
+import assert from 'assert';
 import sinon from 'sinon';
 
 import fetch from 'node-fetch';
@@ -33,7 +34,7 @@ describe('gotifyUtils', () => {
     it('notifies about available updates', async () => {
         try {
             await gotifyUtils.notifyUpdatesAvailable(softwareStub);
-        } catch {
+        } catch (error) {
             assert.fail(error);
             done();
         }
