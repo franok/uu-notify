@@ -4,12 +4,15 @@
   "description": "check for updates of software",
   "main": "index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config=jest.config.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@octokit/core": "^3.4.0",
     "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
