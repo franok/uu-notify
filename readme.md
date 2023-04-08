@@ -25,9 +25,10 @@ The token doesn't need any scopes.
 
 ## development
 
-node v14
+node v16
 
 ```
+nvm use 16
 NODE_ENV=development node index.mjs
 ```
 
