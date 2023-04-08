@@ -1,9 +1,7 @@
-import { expect } from 'chai';
 import sinon from 'sinon';
 
 import fetch from 'node-fetch';
 import * as gotifyUtils from '../util/gotify-utils.mjs';
-// import octokitUtils from '../util/octokit-utils.mjs';
 
 function mockResponse() {
     return new fetch.Response(JSON.stringify({}), {
@@ -13,14 +11,12 @@ function mockResponse() {
 }
 
 beforeEach(() => {
-
-    // sinon.stub(octokitUtils, "retrieveLatestReleaseInformation");
     sinon.stub(fetch, 'Promise').returns(Promise.resolve(mockResponse()));
 });
 
 afterEach(() => {
     fetch.Promise.restore();
-})
+});
 
 const softwareStub = [
     {
